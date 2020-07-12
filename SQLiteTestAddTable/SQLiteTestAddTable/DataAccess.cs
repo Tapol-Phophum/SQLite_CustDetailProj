@@ -28,5 +28,26 @@ namespace SQLiteTestAddTable
                 createTable.ExecuteReader();
             }
         }
+        // Method Add DataBase
+        public static void AddData(string CustID, string firstName, string lastName, string email)
+        {
+            using (SqliteConnection db =
+              new SqliteConnection($"Filename=sqliteSample.db"))
+            {
+                db.Open();
+
+                SqliteCommand insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+
+                // Use parameterized query to prevent SQL injection attacks //ป้องกันการโจมตีฐานข้อมูล ข้อมูลต้องไม่เป็น SQL command
+                insertCommand.CommandText = "INSERT INTO MyCustomers VALUES ('" + CustID + "', @firstName, @lastName, @email);";
+                insertCommand.Parameters.AddWithValue("@firstName", firstName);
+                insertCommand.Parameters.AddWithValue("@lastName", lastName);
+                insertCommand.Parameters.AddWithValue("@email", email);
+                insertCommand.ExecuteReader();
+
+                db.Close();
+            }
+        }
     }
 }
