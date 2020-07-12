@@ -1,9 +1,11 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SQLiteTestAddTable
 {
@@ -48,6 +50,35 @@ namespace SQLiteTestAddTable
 
                 db.Close();
             }
+        }
+        //public static List<String> GetData()
+        public static ArrayList GetData() // Return List to ArrayList Using Collection for show MessageBox
+        {
+            //List<String> entries = new List<string>();
+            ArrayList entries = new ArrayList();
+
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename=sqliteSample.db"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT CustID, first_Name, last_Name, email from MyCustomers", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    entries.Add(query.GetString(0));
+                    entries.Add("Name " + query.GetString(1) + "Last Name " + query.GetString(2) + "Email " + query.GetString(3));
+                }
+                db.Close();
+            }
+            return entries;
+        }
+        private DataAccess()
+        {
+            MessageBox.Show("Welcome to SQLite start connecting to DataBase");
         }
     }
 }

@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="392*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="35" Margin="195,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" FontSize="16" Grid.Column="1"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="35" Margin="195,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" FontSize="16" Grid.Column="1"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="35" Margin="195,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" FontSize="16" Grid.Column="1"/>
+        <Button x:Name="addBtn" Content=" New Item" HorizontalAlignment="Left" Height="35" Margin="540,105,0,0" VerticalAlignment="Top" Width="140" FontSize="16" FontFamily="Century" Background="#FFADF62E" Click="addBtn_Click" Grid.Column="1"/>
+        <Button x:Name="editBtn" Content="Edit Item" HorizontalAlignment="Left" Height="35" Margin="540,155,0,0" VerticalAlignment="Top" Width="140" FontSize="16" FontFamily="Century" Background="#FFE47057" Grid.Column="1"/>
+        <Button x:Name="deleteBtn" Content="Delete Item" HorizontalAlignment="Left" Height="35" Margin="540,205,0,0" VerticalAlignment="Top" Width="140" FontSize="16" FontFamily="Century" Background="#FFF12F0E" Grid.Column="1"/>
+        <Button x:Name="showMsgBtn" Content="Message Box Show" HorizontalAlignment="Left" Height="35" Margin="540,255,0,0" VerticalAlignment="Top" Width="140" FontSize="14" FontFamily="Century" Background="#FF1ABDAF" Click="showMsgBtn_Click" Grid.Column="1"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="35" Margin="195,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" FontSize="16" Grid.Column="1"/>
+        <Label x:Name="lblCustID" Content="Customer ID" HorizontalAlignment="Left" Height="30" Margin="70,110,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Grid.Column="1"/>
+        <Label x:Name="lblName" Content="First Name" HorizontalAlignment="Left" Height="30" Margin="70,160,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Grid.Column="1"/>
+        <Label x:Name="lblLastName" Content="Last Name" HorizontalAlignment="Left" Height="30" Margin="70,200,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Grid.Column="1"/>
+        <Label x:Name="lblEmail" Content="E-Mail" HorizontalAlignment="Left" Height="30" Margin="70,260,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Grid.Column="1"/>
+
     </Grid>
 </Window>
